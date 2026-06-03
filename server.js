@@ -14,6 +14,18 @@ const app = express();
 connectDB();
 
 app.use(cors());
+
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://social-app-frontend-2zuq.vercel.app",
+    ],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 app.use("middleware/uploads",
